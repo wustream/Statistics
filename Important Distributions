@@ -1,0 +1,22 @@
+Bernoulli Distribution:
+
+probability = p for k = 1
+probability = 1-p for k = 0
+
+mean = p
+variance = p(1-p), Var[X]=E[X^2]-E[X]^2=p-p^2=p(1-p)
+
+Bionormial Distritution:
+n * indenpendent Bernolli distribution
+mean = E(X) = np
+[E(X) = E(X1 + X2 + . . . + Xn) = E(X1) + E(X2) + . . . + E(Xn) = np
+since each Xi ∼ Ber(p)]
+
+variance = V (X) = V (X1) + V (X2) + . . . + V (Xn) = np(1 − p)
+
+[if Y1, Y2, . . . , Yk arised out of k independent experiments then
+V (Y1 + Y2 + . . . + Yk) = V (Y1) + V (Y2) + . . . + V (Yk)]
+
+Usefull link:
+http://www.stat.ufl.edu/~abhisheksaha/sta4321/lect12.pdf
+
