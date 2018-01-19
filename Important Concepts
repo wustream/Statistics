@@ -1,0 +1,19 @@
+# Law of Large Numbers:
+
+X1, X2, ..., Xn are IID random variables, Xi has finite mean m.
+Sample mean will converge to true mean m as n increases.
+
+sum(Xi)/n --> m (n--> infinity)
+
+Population mean can be estimated by sample mean. 
+
+Good sample mean estimator should be unbiased: Expected mean of the sample mean is the same as population mean. 
+
+unbiased good estimator may still have some distribution, but law of large numbers is more strict as in the later case the populaion mean is a certain number, not distribution any more.
+
+# Central Limit Theorem:
+X1, X2, ..., Xn are IID random variables, with finite mean m and variance sigma^2.
+Sample mean will follow N(m, sigma^2/n).
+sum(Xi)/n ~ N(m, sigma^2/n)
+
+Replacing sigma by sample standard deviation s, CLT still holds.
