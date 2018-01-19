@@ -11,9 +11,76 @@ Good sample mean estimator should be unbiased: Expected mean of the sample mean 
 
 unbiased good estimator may still have some distribution, but law of large numbers is more strict as in the later case the populaion mean is a certain number, not distribution any more.
 
-# Central Limit Theorem:
+
+# Central Limit Theorem (CLT):
+
 X1, X2, ..., Xn are IID random variables, with finite mean m and variance sigma^2.
 Sample mean will follow N(m, sigma^2/n).
+
 sum(Xi)/n ~ N(m, sigma^2/n)
+Usually N >= 30 is enough too satisfy CLT
 
 Replacing sigma by sample standard deviation s, CLT still holds.
+
+Application:
+Say Xi follows Bernolli distribution Xi~Ber(p), 
+the sum of X1~Xn follows Bionomial Distribution X ∼ Bin(n, p): 
+p(x) = Cn,x * p^x*(1 − p)^(n−x)
+
+When n is large enough, the mean of X1, X2, ..., Xn follows Normal Distribution: N(p, p(1-p)/n)
+The sample mean is E(sum(Xi)/n) = np/n = p
+The sample variance is Var(sum(Xi)/n) = np(1-p)/n^2 = p(1-p)/n
+
+
+# When CLT fails: N<30
+Normal distribution --> T distribution when N < 30
+. T distribution has only one parameter: degree of freedom (df = N-1)
+. as df increases, T distribution approaches normal distribution
+. T distribution has heavier tails (to compensate small sample size)
+. CI under normal distribution:
+  Mean(estimate) +/- z(1-a/2)*StdErr(estimate)
+. CI under t distribution:
+  Mean(estimate) +/- t(n-1)*StdErr(estimate)
+  
+  # What if variable does not follow normal distribution? Skewed distribution
+  What causes skewness? Lower or upper bound
+  We can still use normal distribution to estimate mean of skewed variables when sample size is large enough. 
+  Mode and median are more meaningfull for skewed distribution.
+  
+  # How to treat skewed variables?
+  . Log transformation, square root, inverse
+  . Use median, if so what is the CI of median?
+    Non-parametric method: Bootstrap, Jackknife
+  
+  Question: How to get the median with know CI using bootstrap?
+  Sample with replacement: for N sized sample, iteratively sample N times with replacements and get median(i)
+  Do the above for N times
+  List N median from smallest to largest, and get the central 95% median range. 
+  
+  # Covariance and correlation
+  cov(X, Y) = E[(X-E(X))(y-E(Y))]
+  correlaiton: Q(X, Y) = corr(X, Y) = cov(X, Y)/(var(X)*var(Y))
+  
+  Sample covariance and correlation:
+  cov(X,Y) = 1/(n-1) * sum[(Xi-E(X))(Yi-E(Y))] = 1/(n-1) * (sum(Xi*Yi)-n*E(X)*E(Y))
+  corr(X,Y) = cov(X,Y)/(s_X*s_Y)
+  
+  Important properties of correlation:
+  cor(X, Y) = cor(Y, X)
+  -1 <= cor(X,Y) <= 1
+  cor(X,Y) = 1 or -1: X, Y aligned on a line
+  cor(X,Y) = 0, X and Y are indenpendent
+  
+  Geometric interpretaion:
+  Q(X,Y) = cov(X,Y)/(var(X)*var(Y)) = cos(X,Y)
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
